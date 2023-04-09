@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <title>Capteur Valuer</title>
+  </head>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
+
+    <section id="values" class="portfolio">
+        <div class="container">
+            <h2 class="text-uppercase text-center text-secondary">Values</h2>
+            <hr class="star-dark mb-5">
+            <div class="row">
+                <div class="col-md-6 col-lg-4" style="background-color: #18bc9c;"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-1" data-bs-toggle="modal"></a>
+                    <p class="h3" style="color: #2c3e50;">LDR : Light intensity</p>
+                    <p id="my-paragraph1" class="h4" style="color: #2c3e50;">0%</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+   
+    <div class="d-lg-none scroll-to-top position-fixed rounded"><a class="text-center d-block rounded text-white" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/freelancer.js"></script>
+</body>
+
+</html>
+
+<script>
+
+    const dataElement1 = document.getElementById('my-paragraph1');
+    setInterval(() => {
+        fetch('/data1')
+            .then(response => response.json())
+            .then(data => {
+                dataElement1.innerHTML = data.join('');
+            })
+            .catch(error => console.error(error));
+    }, 500);
+</script>
